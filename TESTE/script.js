@@ -10,6 +10,6 @@ document.getElementById('buscar').addEventListener('click', () => {
     })
     .catch(error => {
       console.error('Erro ao buscar previsão do tempo:', error);
-      alert('Erro ao buscar previsão do tempo.');
+      alert('Erro ao buscar previsão do tempo. Cidade ainda não encontrada no bandco de dados!!');
     });
 });

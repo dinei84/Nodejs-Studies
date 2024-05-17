@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const cors = require('cors');
 
-const apiKey = '2ea0857cebe675c2d3e0d0deb4935edb'; // Substitua por sua chave da API
+const apiKey = '075c5aca09590a9df2dd5f33df74b29b'; // Substitua por sua chave da API
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -17,7 +17,7 @@ app.get('/tempo/:cidade', (req, res) => {
   request(urlAPI, (error, response, body) => {
     if (error) {
       console.error(error);
-      res.status(500).send('Erro ao buscar previsão do tempo.');
+      res.sendStatus(500).send('Erro ao buscar previsão do tempo.');
       return;
     }
 
