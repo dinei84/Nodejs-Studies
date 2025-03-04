@@ -1,7 +1,9 @@
-const chalk = require('chalk');
-const nota = 9;
+import chalk from "chalk";
 
-// Defina o nível de suporte a cores se necessário
-chalk.level = 1;
+const nota = 6
 
-console.log(chalk.green("Aprovado"));
+if (nota >= 7) {
+    console.log(chalk.green(`Sua nota foi ${nota} e você foi aprovado`))
+}else{
+    console.log(chalk.red(`Sua nota foi ${nota}, e voce esta Reprovado`))
+}
