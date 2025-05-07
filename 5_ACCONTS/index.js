@@ -4,7 +4,6 @@ import chalk from "chalk";
 
 //modulos internos
 import fs, { access } from "fs";
-import { error } from "console";
 
 operation();
 
@@ -32,8 +31,8 @@ function operation() {
         deposit();
       } else if (action === "Consultar Saldo") {
         getAccountBalance()
-      } else if (action === "Depositar") {
       } else if (action === "Sacar") {
+        widthraw()
       } else if (action === "Sair") {
         console.log(chalk.bgBlue.black("Obrigado por usar o Sistema"));
         process.exit();
@@ -192,4 +191,71 @@ function getAccountBalance() {
     operation()
     })
     .catch((err) => console.log(err));
+}
+
+// widthraw an amount from user account
+function widthraw(){
+  inquirer.prompt([
+    {
+      name: 'accountName',
+      message: 'Qual o nome da sua conta:'
+    },
+  ]).then((answer)=> {
+
+    const accountName = answer['accountName']
+
+    if (!checkAccount(accountName)) {
+      return widthraw()
+    }
+
+    inquirer.prompt([
+      {
+        name: 'amount',
+        message: 'Quantos reais quer sacar? '
+      }
+    ]).then((answer) => {
+
+      const amount = answer['amount']
+
+      removeAmount(accountName,amount)
+
+    }).catch((err) => console.log(err))
+
+  })
+  .catch((err) => console.log(err))
+}
+
+
+function removeAmount(accountName, amount){
+  const accountData = getAccount(accountName)
+
+  if (!amount) {
+    console.log(    
+      chalk.bgRed.black(`Ocorreu um erro, tente novamente mais tarde`),
+    )
+    return widthraw()
+  }
+
+  if (accountData.balance < amount) {
+    console.log(
+      chalk.bgRed.black('Valor indisponivel')
+    )
+    return widthraw()
+  }
+
+  accountData.balance = parseFloat(accountData.balance) - parseFloat(amount)
+
+  fs.writeFileSync(
+    `accounts/${accountName}.json`,
+    JSON.stringify(accountData),
+    function(err){
+      console.log(err)
+    },
+  )
+
+  console.log(
+    chalk.green(`Foi realizado um saque de ${amount}, na conta de ${accountName}`)
+  )
+  operation()
+
 }
