@@ -1,0 +1,168 @@
+@charset "utf-8";
+
+body {    
+    font-family: "Noto Sans Mono", monospace;    
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    display: flex;  
+    justify-content: center;  
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    width: 540px;
+    min-height: 600px;    
+    border: 2px solid black;
+    border-radius: 25px;
+    box-shadow: 5px 5px 10px rgb(50, 26, 26);    
+    background: rgb(232, 228, 228);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: sans-serif;
+    margin: 0 0 5px 0;
+    text-align: center;
+    color: white;
+}
+
+p {
+    font-family: sans-serif;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+    margin: 5px 0;    
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+    width: 100%;
+}
+
+input {
+    width: 200px;
+    height: 35px;
+    font-size: 18px;
+    border-radius: 10px;    
+    border: 1.5px solid rgb(4, 4, 4);
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.ref {
+    width: auto;
+    height: auto;
+    margin: 5px 0;
+    border-radius: 8px;    
+    padding: 5px 0; 
+    color: black;   
+}
+
+.botoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin: 20px 0;
+}
+
+#botao {    
+    background-color: green;
+    border-radius: 30px;
+    width: 120px;
+    height: 40px;
+    color: white;
+    font-size: 16px;
+}
+
+#botao:hover {
+    background-color: lightgreen;
+    color: green;
+}
+
+#clean {
+    background-color: red;
+    border-radius: 30px;
+    width: 120px;
+    height: 40px;
+    color: white;
+    font-size: 16px;
+}
+
+#clean:hover {
+    background-color: lightgoldenrodyellow;
+    color: red;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.buttonback {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.bot3 {
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bolder;
+    color: red;
+    border: 2px solid red;
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        width: 90%;
+        min-height: auto;
+        padding: 15px;
+    }
+
+    input {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .botoes {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #botao, #clean {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+.imgback {
+    width: 30px;
+    height: 30px;
+    margin-left: -62px;
+    padding-top: 4px;
+    cursor: pointer;
+}
