@@ -20,11 +20,13 @@ app.get('/users/add',(req, res) =>{
     res.sendFile(`${basePath}/userform.html`)
 })
 
-app.post('/users/save',(req, res)=>{
-
-    console.log(req.body)
-
-})
+app.post('/users/save', (req, res) => {
+    console.log('Dados recebidos:', req.body);
+    // res.json({ 
+    //     message: 'Usuário salvo com sucesso!',
+    //     data: req.body 
+    // });
+});
 
 app.get('/users/:id', (req, res) => {
     const id = req.params.id
