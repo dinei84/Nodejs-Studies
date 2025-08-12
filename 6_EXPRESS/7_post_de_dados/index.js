@@ -21,11 +21,12 @@ app.get('/users/add',(req, res) =>{
 })
 
 app.post('/users/save', (req, res) => {
-    console.log('Dados recebidos:', req.body);
-    // res.json({ 
-    //     message: 'Usuário salvo com sucesso!',
-    //     data: req.body 
-    // });
+    console.log(req.body)
+
+    const name = req.body.name
+    const age = req.body.age
+
+    console.log(`O usuario ${name}, tem ${age} anos`)
 });
 
 app.get('/users/:id', (req, res) => {
