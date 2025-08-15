@@ -2,13 +2,16 @@ const express = require('express')
 const app = express()
 const port = 5000
 const path = require ('path')
-const basePath = path.join(__dirname, '../templates')
+const basePath = path.join(__dirname, 'templates')
+const routes = require('./routes/index.js')
 
+
+
+app.use('/calculator', routes)
 
 app.get('/', (req, res) => {
-    res.sendFile(`${basePath}/index.js`)
+    res.sendFile(`${basePath}/index.html`)
 })
-
 
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`)

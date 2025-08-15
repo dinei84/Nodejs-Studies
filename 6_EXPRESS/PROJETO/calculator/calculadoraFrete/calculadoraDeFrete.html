@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Frete</title>
+</head>
+<body>
+    <h1>Calculadora de Frete</h1>
+    <form>
+        <label for="peso">Peso (kg):</label>
+        <input type="number" id="peso" name="peso" required><br><br>
+
+        <label for="distancia">Distância (km):</label>
+        <input type="number" id="distancia" name="distancia" required><br><br>
+
+        <label for="tipo">Tipo de Serviço:</label>
+        <select id="tipo" name="tipo">
+            <option value="normal">Normal</option>
+            <option value="expresso">Expresso</option>
+        </select><br><br>
+
+        <button type="button" onclick="calcularFrete()">Calcular Frete</button>
+    </form>
+
+    <h2 id="resultado"></h2>
+
+    <script>
+        function calcularFrete() {
+            const peso = parseFloat(document.getElementById('peso').value);
+            const distancia = parseFloat(document.getElementById('distancia').value);
+            const tipo = document.getElementById('tipo').value;
+
+            let custoBase = 5.0; // Custo base
+            let custoPorKg = 2.0; // Custo por kg
+            let custoPorKm = 0.5; // Custo por km
+
+            if (tipo === 'expresso') {
+                custoBase += 10.0; // Taxa adicional para expresso
+            }
+
+            const custoTotal = custoBase + (custoPorKg * peso) + (custoPorKm * distancia);
+            document.getElementById('resultado').innerText = `Custo Total do Frete: R$ ${custoTotal.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
