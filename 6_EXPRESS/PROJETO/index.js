@@ -6,6 +6,9 @@ const basePath = path.join(__dirname, 'templates')
 const routes = require('./routes/index.js')
 
 
+// Arquivos estaticos
+app.use(express.static('public'))
+
 
 app.use('/calculator', routes)
 
