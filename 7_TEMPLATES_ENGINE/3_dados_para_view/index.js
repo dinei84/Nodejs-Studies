@@ -8,7 +8,17 @@ app.engine('handlebars', exhbs.engine())
 app.set('view engine', 'handlebars')
 
 app.get('/', (req, res)=>{
-    res.render('home')
+
+    const user = {
+        name: "Dinei",
+        idade: "41",
+        profissao: "Programador"
+    }
+
+    const palavra = "Teste de palavra"
+
+    res.render('home', {user: user, palavra})
+
 })
 
 app.listen(port, () =>{

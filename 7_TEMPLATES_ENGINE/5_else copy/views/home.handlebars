@@ -1,0 +1,22 @@
+<h1>Ola Handlebars</h1>
+
+{{#if approved}}
+
+    <p>
+        Seu cadastro foi aprovado!
+    </p>
+{{else}}
+
+    <p>
+        Seu cadastro precisa de atenção
+    </p>
+
+{{/if}}
+
+        <p>O nome do usuario é: {{user.name}}, e ele tem: {{user.idade}} anos, a profissão dele é {{user.profissao}}</p>
+
+{{#if auth}}
+
+<p>Voce esta atutenticado, <a href="/dashboard">Clique aqui</a>, para ir para pagina inicial</p>
+
+{{/if }}
