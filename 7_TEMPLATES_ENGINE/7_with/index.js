@@ -8,7 +8,22 @@ app.engine('handlebars', exhbs.engine())
 app.set('view engine', 'handlebars')
 
 app.get('/dashboard',(req, res)=>{
-    res.render('dashboard')
+
+    const itens = ["Item a", "Item b","Item c" ]
+
+    res.render('dashboard',{itens})
+})
+
+app.get('/blogpost', (req, res)=>{
+
+    const post = {
+        title: 'Aprender JavaScript',
+        category: 'Aprender Nodejs',
+        body: 'Este artigo vai te ajudar a aprender Node js...',
+        comments: 4,
+    }
+
+    res.render('blogpost', {post})
 })
 
 app.get('/', (req, res)=>{
