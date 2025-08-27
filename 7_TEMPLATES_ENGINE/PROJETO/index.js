@@ -1,7 +1,6 @@
 const express = require('express')
 const exhbs = require('express-handlebars')
-const port = 3000
-const path = require('path')
+const port = 5000
 
 const app = express()
 
@@ -9,13 +8,13 @@ const app = express()
 app.engine('handlebars', exhbs.engine())
 app.set('view engine', 'handlebars')
 
+app.use(express.static('public'))
+
 
 
 app.get('/', (req, res)=>{
-    res.send('<p>Ola Mundo</p>')
+    res.render('home')
 })
-
-
 
 
 
