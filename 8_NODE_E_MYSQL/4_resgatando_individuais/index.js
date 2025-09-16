@@ -22,8 +22,8 @@ app.get('/', (req, res) => {
 
 app.post('/books/insertbook', (req, res) => {
     const title = req.body.title
-    const pageqty = req.body.pageqty    
-
+    const pageqty = req.body.pagesqty 
+    
     const sql = `INSERT INTO books (title, pageqty) VALUES('${title}','${pageqty}')`
     console.log('SQL gerado:', sql)
 
@@ -51,6 +51,25 @@ app.get('/books', (req, res) => {
         
         res.render('books', { books })
     })
+})
+
+app.get('/books/:id', (req, res)=>{
+
+    const id = req.params.id
+
+    const sql = `SELECT * FROM books WHERE id = ${id}`
+
+    conn.query(sql, function(err, data){
+        if (err) {
+            console.log(err)
+            return
+        }
+
+        const book = data[0]
+
+        res.render('book', {book})
+    })   
+
 })
 
 
