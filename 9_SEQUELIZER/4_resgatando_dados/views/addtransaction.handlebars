@@ -1,0 +1,60 @@
+<h1>Adicione Usuário</h1>
+<form action="/transaction/create" method="post" class="form">
+  <div class="form-control">
+  <label for="bank">Banco: </label>
+  <select name="bank" id="bank" required>
+    <option value="" disabled selected>Selecione o banco</option>
+    <option value="brasil">Banco do Brasil</option>
+    <option value="itau">Itaú</option>
+    <option value="bradesco">Bradesco</option>
+    <option value="mercadopago">Mercado Pago</option>
+    <option value="nubank">Nubank</option>
+  </select>
+</div>
+  <div class="form-control">
+    <label for="value">Valor: </label>
+    <input
+      type="number"
+      name="value"
+      placeholder="Digite o valor da transação"
+      required
+      min="0.01"
+      step="0.01"
+    />
+  </div>
+  <div class="form-control">
+    <label for="category">Categoria: </label>
+    <select name="category" id="category" required>
+      <option value="" disabled selected>Selecione a categoria</option>
+      <option value="alimentacao">Alimentação</option>
+      <option value="transporte">Transporte</option>
+      <option value="moradia">Moradia</option>
+      <option value="saude">Saúde</option>
+      <option value="lazer">Lazer</option>
+      <option value="educacao">Educação</option>
+      <option value="contas">Contas e Serviços</option>
+      <option value="compras">Compras</option>
+      <option value="roupas">Roupas</option>
+      <option value="viagens">Viagens</option>
+      <option value="outros">Outros</option>
+    </select>
+  </div>
+  <div class="form-control">
+    <label for="type">Tipo: </label>
+    <select name="type" id="type" required>
+      <option value="" disabled selected>Selecione o tipo</option>
+      <option value="gasto">Gasto</option>
+      <option value="investimento">Investimento</option>
+      <option value="lucro">Lucro</option>
+    </select>
+  </div>
+  <div class="form-control">
+    <label for="description">Descrição: </label>
+    <input type="text" name="description" placeholder="Digite a descrição" required />
+  </div>
+  <div class="form-control">
+    <label for="date">Data: </label>
+    <input type="date" name="date" required />
+  </div>
+  <input type="submit" value="Cadastrar" />
+</form>

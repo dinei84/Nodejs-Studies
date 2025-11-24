@@ -1,0 +1,22 @@
+<h1>Usuarios</h1>
+<div class="container">
+    {{#each users}}
+    <div class="item">
+        <p>{{this.name}}</p>
+    </div>
+    {{/each}}
+    <div class="separation">
+        <p>--------------------------------------------------------------------</p>
+    </div>
+
+    <div class="container-bank">
+        {{#each transaction}}
+        <div class="item">
+            <p>Banco: {{this.bank}}</p>
+            <p>Valor: {{this.value}}</p>
+            <p>Categoria: {{this.category}}</p>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
